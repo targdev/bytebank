@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Transfers } from '../models/transfers.model';
+import { TransferList } from '../services/transferList.service';
 
 @Component({
   selector: 'app-new-transfer',
@@ -9,13 +11,19 @@ export class NewTransferComponent {
     values!: number;
     destinations!: number;
 
+    constructor(private TransferList: TransferList) {}
+
     @Output() transferring = new EventEmitter<any>();
 
     transfer() {
-        const issueValues = {values: this.values, destinations: this.destinations};
+        const issueValues: Transfers = {values: this.values, destinations: this.destinations};
         console.log("solicited transfer");
 
-        this.transferring.emit(issueValues);
+        this.TransferList.addTransfer(issueValues).subscribe(result => {
+          console.log(result);
+          this.clearFields();
+        },
+        error => console.error(error));
 
         this.clearFields();
     }
