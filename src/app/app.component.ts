@@ -9,9 +9,5 @@ import { TransferList } from './services/transferList.service';
 export class AppComponent {
   title = 'ByteBank';
 
-  constructor(private service: TransferList) { }
-
-  transfer($event: any) {
-    this.service.addTransfer($event);
-  }
+  constructor(private TransferList: TransferList) { }
 }
