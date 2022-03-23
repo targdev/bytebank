@@ -11,12 +11,13 @@
     margin: 0 auto;
     background-color: white;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0 0;
   
     &__header {
       color: var(--primary);
   
       &__content {
-        padding: 10px;
+        padding: 20px;
         border-bottom: 2px solid green;
       }
     }
@@ -24,16 +25,10 @@
     &__row {
       margin-bottom: 10px;
       border-radius: 4px;
-  
-      &:last-child {
-        .tabela__conteudo {
-          border-bottom: none;
-        }
+
+      &__content {
+        padding: 10px;
+        border-bottom: 1px solid var(--cinza-claro);
       }
-    }
-  
-    &__content {
-      padding: 10px;
-      border-bottom: 1px solid var(--cinza-claro);
     }
   }
