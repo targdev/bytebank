@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Transfers } from '../models/transfers.model';
 import { TransferList } from '../services/transferList.service';
 
@@ -11,25 +12,15 @@ export class NewTransferComponent {
     values!: number;
     destinations!: number;
 
-    constructor(private TransferList: TransferList) {}
-
-    @Output() transferring = new EventEmitter<any>();
+    constructor(private TransferList: TransferList, private routingPages: Router) {}
 
     transfer() {
         const issueValues: Transfers = {values: this.values, destinations: this.destinations};
         console.log("solicited transfer");
 
         this.TransferList.addTransfer(issueValues).subscribe(result => {
-          console.log(result);
-          this.clearFields();
+          this.routingPages.navigateByUrl('extract');
         },
         error => console.error(error));
-
-        this.clearFields();
-    }
-
-    clearFields(){
-      this.values = 0;
-      this.destinations = 0;
     }
  }
