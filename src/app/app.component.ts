@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferList } from './services/transferList.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ByteBank';
-  transferred: any[] = [];
+
+  constructor(private service: TransferList) { }
 
   transfer($event: any) {
-    const transferred = {...$event, date: new Date}
-    this.transferred.push(transferred);
+    this.service.addTransfer($event);
   }
 }
