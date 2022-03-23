@@ -10,10 +10,10 @@ import { TransferList } from '../services/transferList.service';
 export class ExtractComponent implements OnInit {
   transfers: any[] = [];
 
-  constructor(private service: TransferList) { }
+  constructor(private TransferList: TransferList) { }
 
   ngOnInit(): void {
-    this.service.allTransfers().subscribe((apiTransfers: Transfers[]) => {
+    this.TransferList.allTransfers().subscribe((apiTransfers: Transfers[]) => {
       console.table(apiTransfers);
       this.transfers = apiTransfers;
     })
