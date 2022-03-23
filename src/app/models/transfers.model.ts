@@ -1,6 +1,6 @@
 export interface Transfers {
-    id?: string;
+    id?: number;
     values: number;
-    destinations: number | string;
+    destinations: number;
     date?: Date;
 }
