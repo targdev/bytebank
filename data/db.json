@@ -1,34 +1,10 @@
 {
   "transfers": [
     {
-      "id": "1",
-      "values": 35,
-      "destinations": "1212-1",
-      "date": "2020-11-04T16:30:10.710Z"
-    },
-    {
-      "id": "2",
-      "values": 40,
-      "destinations": "1213-1",
-      "date": "2020-11-04T21:24:10.710Z"
-    },
-    {
-      "id": "3",
-      "values": 12.5,
-      "destinations": "1214-1",
-      "date": "2020-11-05T21:14:10.710Z"
-    },
-    {
-      "values": 145,
+      "values": 200,
       "destinations": "1547-1",
-      "date": "2022-03-23T13:44:43.497Z",
-      "id": "H6xVYOh"
-    },
-    {
-      "values": 100,
-      "destinations": "1234-2",
-      "date": "2022-03-23T13:46:27.577Z",
-      "id": "lwde5cE"
+      "date": "2022-03-23T19:12:49.311Z",
+      "id": 1
     }
   ]
 }
