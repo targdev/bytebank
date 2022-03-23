@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TransferList } from '../services/transferList.service';
 
 @Component({
   selector: 'app-extract',
@@ -6,12 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./extract.component.scss']
 })
 export class ExtractComponent implements OnInit {
+  transfers: any[] = [];
 
-  @Input() transferred: any[] = [];
-
-  constructor() { }
+  constructor(private service: TransferList) { }
 
   ngOnInit(): void {
+    this.transfers = this.service.transfers;
   }
-
 }
