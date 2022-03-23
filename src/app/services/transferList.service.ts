@@ -9,7 +9,7 @@ import { Transfers } from "../models/transfers.model";
 
 export class TransferList {
     private transferList: any[];
-    private url = 'http://localhost:3000/transfers';
+    private urlListTransfers = 'http://localhost:3000/transfers';
 
     constructor(private httpClient: HttpClient) {
         this.transferList = []
@@ -20,13 +20,13 @@ export class TransferList {
     }
 
     allTransfers(): Observable<Transfers[]> {
-        return this.httpClient.get<Transfers[]>(this.url);
+        return this.httpClient.get<Transfers[]>(this.urlListTransfers);
     }
 
-    addTransfer(transferring: any) {
+    addTransfer(transferring: Transfers): Observable<Transfers> {
         this.ImplementsDate(transferring);
 
-        this.transferList.push(transferring);
+        return this.httpClient.post<Transfers>(this.urlListTransfers, transferring);
     }
 
     private ImplementsDate(transferData: any) {
